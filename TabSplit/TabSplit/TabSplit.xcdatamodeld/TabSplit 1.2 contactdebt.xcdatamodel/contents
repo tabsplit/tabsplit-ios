@@ -9,9 +9,9 @@
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contactDebts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContactDebt" inverseName="contact" inverseEntity="ContactDebt" syncable="YES"/>
     </entity>
-    <entity name="ContactDebt" representedClassName="ContactDebt" syncable="YES">
+    <entity name="ContactDebt" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="contact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="contactDebts" inverseEntity="Contact" syncable="YES"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="contactDebts" inverseEntity="Contact" syncable="YES"/>
         <relationship name="currency" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Currency" inverseName="contactDebts" inverseEntity="Currency" syncable="YES"/>
     </entity>
     <entity name="Currency" representedClassName="Currency" syncable="YES">
@@ -23,8 +23,8 @@
         <relationship name="contactDebts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContactDebt" inverseName="currency" inverseEntity="ContactDebt" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Contact" positionX="160" positionY="192" width="128" height="150"/>
-        <element name="ContactDebt" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Currency" positionX="135" positionY="45" width="128" height="135"/>
+        <element name="Contact" positionX="153" positionY="63" width="128" height="150"/>
+        <element name="ContactDebt" positionX="-92" positionY="117" width="128" height="90"/>
+        <element name="Currency" positionX="151" positionY="261" width="128" height="135"/>
     </elements>
 </model>

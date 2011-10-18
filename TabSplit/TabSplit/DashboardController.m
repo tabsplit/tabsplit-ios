@@ -33,7 +33,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     [delegate ensureSync];
-    [self performSegueWithIdentifier:@"reloadData" sender:nil];
+    //[self performSegueWithIdentifier:@"reloadData" sender:nil];
 }
 
 - (void)viewDidLoad {

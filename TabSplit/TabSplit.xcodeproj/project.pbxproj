@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E53A41AA144C5F3B00B460AE /* ContactListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41A9144C5F3B00B460AE /* ContactListTableViewController.m */; };
+		E53A41B8144C922F00B460AE /* EGOImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41AF144C922F00B460AE /* EGOImageButton.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E53A41B9144C922F00B460AE /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41B2144C922F00B460AE /* EGOImageLoadConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E53A41BA144C922F00B460AE /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41B4144C922F00B460AE /* EGOImageLoader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E53A41BB144C922F00B460AE /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41B7144C922F00B460AE /* EGOImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E53A41BF144C924800B460AE /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41BE144C924800B460AE /* EGOCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E53A41C2144CB53B00B460AE /* ContactListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41C1144CB53B00B460AE /* ContactListCell.m */; };
+		E53A41C4144CB61100B460AE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = E53A41C3144CB61100B460AE /* placeholder.png */; };
+		E53A41D8144D5A6D00B460AE /* ModelUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41D7144D5A6D00B460AE /* ModelUtils.m */; };
+		E53A41E5144D5C9200B460AE /* ContactDebt.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41E4144D5C9200B460AE /* ContactDebt.m */; };
+		E53A41E8144D5C9200B460AE /* Currency.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41E7144D5C9200B460AE /* Currency.m */; };
+		E53A41EB144D5C9300B460AE /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41EA144D5C9300B460AE /* Contact.m */; };
 		E56C88361444B0DD005C68D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56C88351444B0DD005C68D6 /* UIKit.framework */; };
 		E56C88381444B0DD005C68D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56C88371444B0DD005C68D6 /* Foundation.framework */; };
 		E56C883A1444B0DD005C68D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56C88391444B0DD005C68D6 /* CoreGraphics.framework */; };
@@ -44,11 +56,42 @@
 		E5A011AA1449E24E004E6AC0 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A0119C1449E24E004E6AC0 /* SBJsonTokeniser.m */; };
 		E5A011AB1449E24E004E6AC0 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A0119E1449E24E004E6AC0 /* SBJsonUTF8Stream.m */; };
 		E5A011AC1449E24E004E6AC0 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A011A01449E24E004E6AC0 /* SBJsonWriter.m */; };
-		E5A011B01449F70A004E6AC0 /* Currency.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A011AF1449F70A004E6AC0 /* Currency.m */; };
-		E5A011E4144A0690004E6AC0 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A011E3144A068F004E6AC0 /* Contact.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E53A41A8144C5F3B00B460AE /* ContactListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListTableViewController.h; sourceTree = "<group>"; };
+		E53A41A9144C5F3B00B460AE /* ContactListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListTableViewController.m; sourceTree = "<group>"; };
+		E53A41AE144C922F00B460AE /* EGOImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageButton.h; sourceTree = "<group>"; };
+		E53A41AF144C922F00B460AE /* EGOImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageButton.m; sourceTree = "<group>"; };
+		E53A41B1144C922F00B460AE /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoadConnection.h; sourceTree = "<group>"; };
+		E53A41B2144C922F00B460AE /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
+		E53A41B3144C922F00B460AE /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoader.h; sourceTree = "<group>"; };
+		E53A41B4144C922F00B460AE /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
+		E53A41B6144C922F00B460AE /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
+		E53A41B7144C922F00B460AE /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
+		E53A41BD144C924800B460AE /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
+		E53A41BE144C924800B460AE /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
+		E53A41C0144CB53B00B460AE /* ContactListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListCell.h; sourceTree = "<group>"; };
+		E53A41C1144CB53B00B460AE /* ContactListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListCell.m; sourceTree = "<group>"; };
+		E53A41C3144CB61100B460AE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		E53A41C8144D568E00B460AE /* TabSplit 1.2 contactdebt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TabSplit 1.2 contactdebt.xcdatamodel"; sourceTree = "<group>"; };
+		E53A41CC144D5A1200B460AE /* ContactDebt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDebt.h; sourceTree = "<group>"; };
+		E53A41CD144D5A1200B460AE /* ContactDebt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDebt.m; sourceTree = "<group>"; };
+		E53A41CF144D5A1300B460AE /* Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Currency.h; sourceTree = "<group>"; };
+		E53A41D0144D5A1300B460AE /* Currency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Currency.m; sourceTree = "<group>"; };
+		E53A41D2144D5A1300B460AE /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		E53A41D3144D5A1300B460AE /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		E53A41D5144D5A2000B460AE /* TabSplit 1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TabSplit 1.3.xcdatamodel"; sourceTree = "<group>"; };
+		E53A41D6144D5A6D00B460AE /* ModelUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelUtils.h; sourceTree = "<group>"; };
+		E53A41D7144D5A6D00B460AE /* ModelUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelUtils.m; sourceTree = "<group>"; };
+		E53A41D9144D5B2400B460AE /* TabSplit 1.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TabSplit 1.4.xcdatamodel"; sourceTree = "<group>"; };
+		E53A41E3144D5C9200B460AE /* ContactDebt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDebt.h; sourceTree = "<group>"; };
+		E53A41E4144D5C9200B460AE /* ContactDebt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDebt.m; sourceTree = "<group>"; };
+		E53A41E6144D5C9200B460AE /* Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Currency.h; sourceTree = "<group>"; };
+		E53A41E7144D5C9200B460AE /* Currency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Currency.m; sourceTree = "<group>"; };
+		E53A41E9144D5C9300B460AE /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		E53A41EA144D5C9300B460AE /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		E53A41EC144D5CC000B460AE /* TabSplit 1.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TabSplit 1.5.xcdatamodel"; sourceTree = "<group>"; };
 		E56C88311444B0DD005C68D6 /* TabSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56C88351444B0DD005C68D6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E56C88371444B0DD005C68D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -120,11 +163,7 @@
 		E5A0119E1449E24E004E6AC0 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		E5A0119F1449E24E004E6AC0 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		E5A011A01449E24E004E6AC0 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		E5A011AE1449F709004E6AC0 /* Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Currency.h; sourceTree = "<group>"; };
-		E5A011AF1449F70A004E6AC0 /* Currency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Currency.m; sourceTree = "<group>"; };
 		E5A011B1144A018A004E6AC0 /* TabSplit 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TabSplit 1.1.xcdatamodel"; sourceTree = "<group>"; };
-		E5A011E2144A068F004E6AC0 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		E5A011E3144A068F004E6AC0 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +185,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E53A41AC144C921100B460AE /* EGO */ = {
+			isa = PBXGroup;
+			children = (
+				E53A41BC144C923700B460AE /* EGOCache */,
+				E53A41AD144C922F00B460AE /* EGOImageButton */,
+				E53A41B0144C922F00B460AE /* EGOImageLoader */,
+				E53A41B5144C922F00B460AE /* EGOImageView */,
+			);
+			name = EGO;
+			sourceTree = "<group>";
+		};
+		E53A41AD144C922F00B460AE /* EGOImageButton */ = {
+			isa = PBXGroup;
+			children = (
+				E53A41AE144C922F00B460AE /* EGOImageButton.h */,
+				E53A41AF144C922F00B460AE /* EGOImageButton.m */,
+			);
+			path = EGOImageButton;
+			sourceTree = "<group>";
+		};
+		E53A41B0144C922F00B460AE /* EGOImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				E53A41B1144C922F00B460AE /* EGOImageLoadConnection.h */,
+				E53A41B2144C922F00B460AE /* EGOImageLoadConnection.m */,
+				E53A41B3144C922F00B460AE /* EGOImageLoader.h */,
+				E53A41B4144C922F00B460AE /* EGOImageLoader.m */,
+			);
+			path = EGOImageLoader;
+			sourceTree = "<group>";
+		};
+		E53A41B5144C922F00B460AE /* EGOImageView */ = {
+			isa = PBXGroup;
+			children = (
+				E53A41B6144C922F00B460AE /* EGOImageView.h */,
+				E53A41B7144C922F00B460AE /* EGOImageView.m */,
+			);
+			path = EGOImageView;
+			sourceTree = "<group>";
+		};
+		E53A41BC144C923700B460AE /* EGOCache */ = {
+			isa = PBXGroup;
+			children = (
+				E53A41BD144C924800B460AE /* EGOCache.h */,
+				E53A41BE144C924800B460AE /* EGOCache.m */,
+			);
+			name = EGOCache;
+			sourceTree = "<group>";
+		};
 		E56C88261444B0DD005C68D6 = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +269,11 @@
 		E56C883D1444B0DE005C68D6 /* TabSplit */ = {
 			isa = PBXGroup;
 			children = (
+				E53A41C0144CB53B00B460AE /* ContactListCell.h */,
+				E53A41C1144CB53B00B460AE /* ContactListCell.m */,
+				E53A41AC144C921100B460AE /* EGO */,
+				E53A41A8144C5F3B00B460AE /* ContactListTableViewController.h */,
+				E53A41A9144C5F3B00B460AE /* ContactListTableViewController.m */,
 				E5A011AD1449F6BC004E6AC0 /* Model */,
 				E5A011611449E10C004E6AC0 /* JSON */,
 				E5A011381449D19C004E6AC0 /* ASI Http */,
@@ -192,6 +285,12 @@
 				E5A011351449CA95004E6AC0 /* DashboardController.h */,
 				E5A011361449CA95004E6AC0 /* DashboardController.m */,
 				E56C88491444B0DE005C68D6 /* TabSplit.xcdatamodeld */,
+				E53A41D2144D5A1300B460AE /* Contact.h */,
+				E53A41D3144D5A1300B460AE /* Contact.m */,
+				E53A41CF144D5A1300B460AE /* Currency.h */,
+				E53A41D0144D5A1300B460AE /* Currency.m */,
+				E53A41CC144D5A1200B460AE /* ContactDebt.h */,
+				E53A41CD144D5A1200B460AE /* ContactDebt.m */,
 				E56C883E1444B0DE005C68D6 /* Supporting Files */,
 			);
 			path = TabSplit;
@@ -200,6 +299,7 @@
 		E56C883E1444B0DE005C68D6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E53A41C3144CB61100B460AE /* placeholder.png */,
 				E56C88511444B133005C68D6 /* IPhoneStoryboard.storyboard */,
 				E56C883F1444B0DE005C68D6 /* TabSplit-Info.plist */,
 				E56C88401444B0DE005C68D6 /* InfoPlist.strings */,
@@ -283,10 +383,14 @@
 		E5A011AD1449F6BC004E6AC0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E5A011E2144A068F004E6AC0 /* Contact.h */,
-				E5A011E3144A068F004E6AC0 /* Contact.m */,
-				E5A011AE1449F709004E6AC0 /* Currency.h */,
-				E5A011AF1449F70A004E6AC0 /* Currency.m */,
+				E53A41E9144D5C9300B460AE /* Contact.h */,
+				E53A41EA144D5C9300B460AE /* Contact.m */,
+				E53A41E6144D5C9200B460AE /* Currency.h */,
+				E53A41E7144D5C9200B460AE /* Currency.m */,
+				E53A41E3144D5C9200B460AE /* ContactDebt.h */,
+				E53A41E4144D5C9200B460AE /* ContactDebt.m */,
+				E53A41D6144D5A6D00B460AE /* ModelUtils.h */,
+				E53A41D7144D5A6D00B460AE /* ModelUtils.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -344,6 +448,7 @@
 			files = (
 				E56C88421444B0DE005C68D6 /* InfoPlist.strings in Resources */,
 				E56C88521444B133005C68D6 /* IPhoneStoryboard.storyboard in Resources */,
+				E53A41C4144CB61100B460AE /* placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,8 +486,17 @@
 				E5A011AA1449E24E004E6AC0 /* SBJsonTokeniser.m in Sources */,
 				E5A011AB1449E24E004E6AC0 /* SBJsonUTF8Stream.m in Sources */,
 				E5A011AC1449E24E004E6AC0 /* SBJsonWriter.m in Sources */,
-				E5A011B01449F70A004E6AC0 /* Currency.m in Sources */,
-				E5A011E4144A0690004E6AC0 /* Contact.m in Sources */,
+				E53A41AA144C5F3B00B460AE /* ContactListTableViewController.m in Sources */,
+				E53A41B8144C922F00B460AE /* EGOImageButton.m in Sources */,
+				E53A41B9144C922F00B460AE /* EGOImageLoadConnection.m in Sources */,
+				E53A41BA144C922F00B460AE /* EGOImageLoader.m in Sources */,
+				E53A41BB144C922F00B460AE /* EGOImageView.m in Sources */,
+				E53A41BF144C924800B460AE /* EGOCache.m in Sources */,
+				E53A41C2144CB53B00B460AE /* ContactListCell.m in Sources */,
+				E53A41D8144D5A6D00B460AE /* ModelUtils.m in Sources */,
+				E53A41E5144D5C9200B460AE /* ContactDebt.m in Sources */,
+				E53A41E8144D5C9200B460AE /* Currency.m in Sources */,
+				E53A41EB144D5C9300B460AE /* Contact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +610,10 @@
 		E56C88491444B0DE005C68D6 /* TabSplit.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E53A41EC144D5CC000B460AE /* TabSplit 1.5.xcdatamodel */,
+				E53A41D5144D5A2000B460AE /* TabSplit 1.3.xcdatamodel */,
+				E53A41C8144D568E00B460AE /* TabSplit 1.2 contactdebt.xcdatamodel */,
+				E53A41D9144D5B2400B460AE /* TabSplit 1.4.xcdatamodel */,
 				E5A011B1144A018A004E6AC0 /* TabSplit 1.1.xcdatamodel */,
 				E56C884A1444B0DE005C68D6 /* TabSplit.xcdatamodel */,
 			);

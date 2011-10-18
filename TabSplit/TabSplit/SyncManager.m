@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "Currency.h"
 #import "Contact.h"
+#import "ModelUtils.h"
 
 @implementation SyncManager
 
@@ -78,7 +79,7 @@
     NSError *error = nil;
     for (id currencyJson in currencyList) {
         NSNumber *serverId = [currencyJson objectForKey:@"id"];
-        Currency *c = [Currency fetchCurrencyByServerId:serverId];
+        Currency *c = [ModelUtils fetchCurrencyByServerId:serverId];
         NSLog(@"Fetched currency - %@", c);
         
         if (c == nil) {
@@ -105,7 +106,7 @@
     NSError *error = nil;
     for (id contactJson in friendList) {
         NSNumber *serverId = [contactJson objectForKey:@"id"];
-        Contact *c = [Contact fetchContactByServerId:serverId];
+        Contact *c = [ModelUtils fetchContactByServerId:serverId];
         if (c == nil) {
             c = (Contact *)[NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:managedObjectContext ];
             NSLog(@"Contact not found. Creating it.");
@@ -188,6 +189,10 @@
     } else if (request.tag == SyncContacts) {
         [self handleContactsResponse: obj];
         [self fireContactsSynced];
+        if (syncinprogress) {
+            // we are done with the sync :)
+            syncinprogress = NO;
+        }
     }
 }
 
