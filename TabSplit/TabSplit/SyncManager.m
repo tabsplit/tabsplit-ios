@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "Currency.h"
 #import "Contact.h"
+#import "ContactDebt.h"
 #import "ModelUtils.h"
 
 @implementation SyncManager
@@ -117,6 +118,16 @@
         [c setIsmyself:[contactJson objectForKey:@"ismyself"]];
         [c setFullName:[contactJson objectForKey:@"full_name"]];
         [c setAvatarUrl:[contactJson objectForKey:@"avatar"]];
+        
+        // create all contact debts from scratch ..
+        [c removeContactDebts:[c contactDebts]];
+        NSArray *debts = (NSArray *)[contactJson objectForKey:@"debts"];
+        for (id debt in debts) {
+            ContactDebt *cb = (ContactDebt *)[NSEntityDescription insertNewObjectForEntityForName:@"ContactDebt" inManagedObjectContext:managedObjectContext];
+            cb.currency = [ModelUtils fetchCurrencyByServerId:[debt objectForKey:@"currency_id"]];
+            cb.amount = [debt objectForKey:@"amount"];
+            cb.contact = c;
+        }
     }
     [managedObjectContext save:&error];
 }

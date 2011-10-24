@@ -20,6 +20,11 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *emailLabel;
 
+@property (nonatomic, strong) IBOutlet UILabel *debtLabel;
+
+@property (nonatomic, strong) IBOutlet UILabel *alldebtLabel;
+
+
 @property (nonatomic, strong) IBOutlet EGOImageView *imageView;
 
 

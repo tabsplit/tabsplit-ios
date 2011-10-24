@@ -9,7 +9,9 @@
 #import "ContactListTableViewController.h"
 #import "AppDelegate.h"
 #import "Contact.h"
+#import "ContactDebt.h"
 #import "ContactListCell.h"
+#import "Currency.h"
 
 
 @implementation ContactListTableViewController
@@ -124,6 +126,27 @@
 //    UILabel *emailText = (UILabel *)[cell viewWithTag:102];
 //    emailText.text = managedObject.email;
     cell.emailLabel.text = managedObject.email;
+    
+    NSString *debt = @"0";
+    NSString *alldebt = @"";
+    
+    int currentCurrency = 1;
+    
+    for (ContactDebt *cd in managedObject.contactDebts) {
+        int amount = [cd.amount intValue];
+        NSString *tmpdebt = [NSString stringWithFormat:@"%@ %d.%02d",cd.currency.isocode, (int)( amount / 100 ), abs(amount % 100)];
+        if (currentCurrency == [cd.currency.serverId intValue]) {
+            debt = tmpdebt;
+        } else {
+            if (![alldebt isEqualToString:@""]) {
+                alldebt = [alldebt stringByAppendingString:@", "];
+            }
+            alldebt = [alldebt stringByAppendingString:tmpdebt];
+        }
+    }
+    
+    cell.debtLabel.text = debt;
+    cell.alldebtLabel.text = alldebt;
 
     
 //    EGOImageView *iv = (EGOImageView *)[cell viewWithTag:101];

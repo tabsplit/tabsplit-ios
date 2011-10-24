@@ -13,6 +13,8 @@
 @synthesize nameLabel;
 @synthesize emailLabel;
 @synthesize imageView;
+@synthesize debtLabel;
+@synthesize alldebtLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
