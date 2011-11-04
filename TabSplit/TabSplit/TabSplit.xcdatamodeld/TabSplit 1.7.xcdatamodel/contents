@@ -9,7 +9,7 @@
         <attribute name="tax" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="tip" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BillItem" inverseName="bill" inverseEntity="BillItem" syncable="YES"/>
-        <relationship name="transaction" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Transaction" inverseName="bill" inverseEntity="Transaction" syncable="YES"/>
+        <relationship name="transaction" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="bill" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <entity name="BillItem" representedClassName="BillItem" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -17,13 +17,11 @@
         <attribute name="quickColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quickX" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="quickY" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="bill" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Bill" inverseName="items" inverseEntity="Bill" syncable="YES"/>
+        <relationship name="bill" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bill" inverseName="items" inverseEntity="Bill" syncable="YES"/>
         <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BillItemContact" inverseName="item" inverseEntity="BillItemContact" syncable="YES"/>
     </entity>
     <entity name="BillItemContact" representedClassName="BillItemContact" syncable="YES">
-        <attribute name="payAmount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="contact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="billItemContacts" inverseEntity="Contact" syncable="YES"/>
-        <relationship name="item" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="BillItem" inverseName="contacts" inverseEntity="BillItem" syncable="YES"/>
+        <relationship name="item" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BillItem" inverseName="contacts" inverseEntity="BillItem" syncable="YES"/>
     </entity>
     <entity name="Contact" representedClassName="Contact" syncable="YES">
         <attribute name="avatarUrl" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,7 +30,6 @@
         <attribute name="ismyself" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="serverId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="billItemContacts" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BillItemContact" inverseName="contact" inverseEntity="BillItemContact" syncable="YES"/>
         <relationship name="contactDebts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContactDebt" inverseName="contact" inverseEntity="ContactDebt" syncable="YES"/>
         <relationship name="transactionContacts" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TransactionContact" inverseName="contact" inverseEntity="TransactionContact" syncable="YES"/>
         <relationship name="transdebta" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransactionDebt" inverseName="contacta" inverseEntity="TransactionDebt" syncable="YES"/>
@@ -60,29 +57,29 @@
         <attribute name="serverId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" defaultValueString="active" syncable="YES"/>
         <attribute name="syncstatus" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="syncstatuslastchange" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="syncstatuslastchange" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="type" attributeType="String" syncable="YES"/>
         <relationship name="bill" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bill" inverseName="transaction" inverseEntity="Bill" syncable="YES"/>
         <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransactionContact" inverseName="transaction" inverseEntity="TransactionContact" syncable="YES"/>
         <relationship name="currency" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Currency" inverseName="transactions" inverseEntity="Currency" syncable="YES"/>
-        <relationship name="debts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransactionDebt" inverseName="transaction" inverseEntity="TransactionDebt" syncable="YES"/>
+        <relationship name="debts" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TransactionDebt" inverseName="transaction" inverseEntity="TransactionDebt" syncable="YES"/>
     </entity>
     <entity name="TransactionContact" representedClassName="TransactionContact" syncable="YES">
         <attribute name="effectiveAmount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="participantType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="payAmount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="tipntaxsplit" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="contact" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Contact" inverseName="transactionContacts" inverseEntity="Contact" syncable="YES"/>
-        <relationship name="transaction" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Transaction" inverseName="contacts" inverseEntity="Transaction" syncable="YES"/>
+        <relationship name="contact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="transactionContacts" inverseEntity="Contact" syncable="YES"/>
+        <relationship name="transaction" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="contacts" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <entity name="TransactionDebt" representedClassName="TransactionDebt" syncable="YES">
         <attribute name="debtamount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="contacta" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Contact" inverseName="transdebta" inverseEntity="Contact" syncable="YES"/>
-        <relationship name="contactb" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Contact" inverseName="transdebtb" inverseEntity="Contact" syncable="YES"/>
-        <relationship name="transaction" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Transaction" inverseName="debts" inverseEntity="Transaction" syncable="YES"/>
+        <relationship name="contacta" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="transdebta" inverseEntity="Contact" syncable="YES"/>
+        <relationship name="contactb" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="transdebtb" inverseEntity="Contact" syncable="YES"/>
+        <relationship name="transaction" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="debts" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Contact" positionX="160" positionY="192" width="128" height="210"/>
+        <element name="Contact" positionX="160" positionY="192" width="128" height="150"/>
         <element name="ContactDebt" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Currency" positionX="135" positionY="45" width="128" height="135"/>
         <element name="Transaction" positionX="358" positionY="462" width="128" height="240"/>
@@ -90,6 +87,6 @@
         <element name="TransactionDebt" positionX="178" positionY="756" width="128" height="105"/>
         <element name="Bill" positionX="504" positionY="459" width="128" height="180"/>
         <element name="BillItem" positionX="522" positionY="234" width="128" height="150"/>
-        <element name="BillItemContact" positionX="504" positionY="90" width="128" height="90"/>
+        <element name="BillItemContact" positionX="504" positionY="90" width="128" height="60"/>
     </elements>
 </model>

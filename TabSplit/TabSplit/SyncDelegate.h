@@ -13,5 +13,6 @@
 - (void)loginResult:(BOOL) successful;
 - (void)currenciesSynced;
 - (void)contactsSynced;
+- (void)transactionsSynced:(int)page totalPages:(int)totalPages;
 
 @end

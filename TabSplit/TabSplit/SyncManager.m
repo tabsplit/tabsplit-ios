@@ -12,10 +12,18 @@
 #import "ASIHTTPRequest.h"
 
 #import "AppDelegate.h"
+#import "Bill.h"
+#import "BillItem.h"
+#import "BillItemContact.h"
 #import "Currency.h"
 #import "Contact.h"
 #import "ContactDebt.h"
+#import "Transaction.h"
+#import "TransactionContact.h"
+#import "TransactionDebt.h"
 #import "ModelUtils.h"
+
+#import "NSDictionary+NSDictionary_ObjectForKeyReturnNil.h"
 
 @implementation SyncManager
 
@@ -102,6 +110,8 @@
 - (void) syncContacts {
     [self requestJSON:@"/mobile/friend/" tag:SyncContacts];
 }
+
+
 - (void) handleContactsResponse:(id) obj {
     NSArray *friendList = [obj objectForKey:@"friend_list"];
     NSError *error = nil;
@@ -132,6 +142,123 @@
     [managedObjectContext save:&error];
 }
 
+- (void) syncTransactions:(int)page {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int lastsync = [defaults integerForKey:@"lastsync"];
+    lastsync = 0;
+    if (page == 1) {
+        self->sync_lastsync = lastsync;
+    }
+    
+
+    [self requestJSON:[NSString stringWithFormat:@"/mobile/transaction/?page=%d&after=%d", page, lastsync] tag:SyncTransactions];
+}
+
+- (BOOL) handleTransactionsResponse:(id) obj {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int lastsync = self->sync_lastsync;
+    int numPages = [[obj objectForKey:@"num_pages"] integerValue];
+    int page = [[obj objectForKey:@"page"] integerValue];
+    
+    NSArray *transactions = [obj objectForKey:@"transactions"];
+    for (id transactionJson in transactions) {
+        NSNumber* serverId = [transactionJson objectForKey:@"id"];
+        Transaction *t = [ModelUtils fetchTransactionByServerId:serverId];
+        int modifydate = [[transactionJson objectForKey:@"modifydate"] integerValue];
+        if (modifydate > lastsync) {
+            lastsync = modifydate;
+        }
+        
+        if (t == nil) {
+            t = (Transaction *)[NSEntityDescription insertNewObjectForEntityForName:@"Transaction" inManagedObjectContext:managedObjectContext ];
+            NSLog(@"Transaction not found. Creating it.");
+            [t setServerId:serverId];
+        } else {
+            if ([t.modifydate integerValue] >= modifydate) {
+                NSLog(@"Transaction not modified, no need to sync.");
+                continue;
+            }
+        }
+        NSString *type = [transactionJson objectForKey:@"type"];
+        [t setModifydate:[NSNumber numberWithInt:modifydate]];
+        [t setDescr:[transactionJson objectForKey:@"description"]];
+        [t setDate:[NSDate dateWithTimeIntervalSince1970:[[transactionJson objectForKey:@"date"] doubleValue]]];
+        [t setType:type];
+        [t setCurrency:[ModelUtils fetchCurrencyByServerId:[transactionJson objectForKey:@"currency"]]];
+        [t setSyncstatus:SYNCSTATUS_NOTMODIFIED];
+        [t setSyncstatuslastchange:[NSDate date]];
+        [t setStatus:[transactionJson objectForKey:@"status"]];
+
+        // Synchronizing contacts ..
+        t.contacts = [NSSet set];
+        NSArray *contactsJson = [transactionJson objectForKey:@"contacts"];
+        for (id contactJson in contactsJson) {
+            TransactionContact *tc = [NSEntityDescription insertNewObjectForEntityForName:@"TransactionContact" inManagedObjectContext:managedObjectContext];
+            tc.participantType = [contactJson objectForKey:@"participanttype"];
+            tc.payAmount = [contactJson objectForKey:@"pay_amount"];
+            tc.effectiveAmount = [contactJson objectForKey:@"effective_amount"];
+            tc.tipntaxsplit = [contactJson objectForKey:@"tipntaxsplit"];
+            [t addContactsObject:tc];
+        }
+        
+        t.debts = [NSSet set];
+        NSArray *debtsJson = [transactionJson objectForKey:@"debts"];
+        for (id debtJson in debtsJson) {
+            TransactionDebt *debt = [NSEntityDescription insertNewObjectForEntityForName:@"TransactionDebt" inManagedObjectContext:managedObjectContext];
+            debt.contacta = [ModelUtils fetchContactByServerId:[debtJson objectForKey:@"usera"]];
+            debt.contactb = [ModelUtils fetchContactByServerId:[debtJson objectForKey:@"userb"]];
+            debt.debtamount = [debtJson objectForKey:@"amount"];
+            [t addDebtsObject:debt];
+        }
+        
+        if ([@"tab" isEqualToString:type]) {
+            Bill *bill = t.bill;
+            if (bill == nil) {
+                bill = [NSEntityDescription insertNewObjectForEntityForName:@"Bill" inManagedObjectContext:managedObjectContext];
+                bill.transaction = t;
+            }
+            bill.photoUrl = [transactionJson objectForKey:@"photo"];
+            bill.isDraft = [NSNumber numberWithInt:[[transactionJson objectForKey:@"is_draft"] boolValue] ? 1 : 0];
+            bill.tip = [transactionJson objectForKey:@"tip"];
+            bill.tax = [transactionJson objectForKey:@"tax"];
+            bill.calculatedTotal = [transactionJson objectForKeyReturnNil:@"calculated_total"];
+            bill.quickRotate = [transactionJson objectForKeyReturnNil:@"rotate"];
+            
+            bill.items = [NSSet set];
+            NSArray *itemsJson = [transactionJson objectForKey:@"items"];
+            for (id itemJson in itemsJson) {
+                BillItem *billItem = [NSEntityDescription insertNewObjectForEntityForName:@"BillItem" inManagedObjectContext:managedObjectContext];
+                billItem.bill = bill;
+                billItem.amount = [itemJson objectForKey:@"amount"];
+                billItem.descr = [itemJson objectForKey:@"description"];
+                billItem.quickX = [itemJson objectForKeyReturnNil:@"quick_x"];
+                billItem.quickY = [itemJson objectForKeyReturnNil:@"quick_y"];
+                billItem.quickColor = [itemJson objectForKeyReturnNil:@"quick_color"];
+                
+                NSArray *itemContactsJson = [itemJson objectForKey:@"contacts"];
+                for (id contactJson in itemContactsJson) {
+                    BillItemContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"BillItemContact" inManagedObjectContext:managedObjectContext];
+                    contact.item = billItem;
+                    contact.contact = [ModelUtils fetchContactByServerId:[contactJson objectForKey:@"user"]];
+                    contact.payAmount = [contactJson objectForKey:@"pay_amount"];
+                }
+            }
+        }
+    }
+    
+    NSError *error = nil;
+    [managedObjectContext save:&error];
+    [self fireTransactionsSynced:page totalPages:numPages];
+    if (page < numPages) {
+        [self syncTransactions:page + 1];
+        self->sync_lastsync = lastsync;
+        return NO;
+    }
+    [defaults setInteger:lastsync forKey:@"lastsync"];
+    
+    return YES;
+}
+
 
 - (void) forceSync {
     if (syncinprogress) {
@@ -156,6 +283,11 @@
 - (void) fireContactsSynced {
     for (id listener in listeners) {
         [listener contactsSynced];
+    }
+}
+- (void) fireTransactionsSynced:(int) page totalPages:(int)totalPages {
+    for (id listener in listeners) {
+        [listener transactionsSynced:page totalPages:totalPages];
     }
 }
 
@@ -200,6 +332,11 @@
     } else if (request.tag == SyncContacts) {
         [self handleContactsResponse: obj];
         [self fireContactsSynced];
+        if (syncinprogress) {
+            [self syncTransactions:1];
+        }
+    } else if (request.tag == SyncTransactions) {
+        [self handleTransactionsResponse: obj];
         if (syncinprogress) {
             // we are done with the sync :)
             syncinprogress = NO;

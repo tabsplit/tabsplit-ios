@@ -29,7 +29,14 @@
 
 
 + (Currency*)fetchCurrencyByServerId: (NSNumber *)serverid {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Currency"];
+    return [self fetchObjectByServerId:serverid withEntityName:@"Currency"];
+}
++ (Transaction*)fetchTransactionByServerId: (NSNumber *)serverid {
+    return [self fetchObjectByServerId:serverid withEntityName:@"Transaction"];
+}
+
++ (id)fetchObjectByServerId: (NSNumber *)serverid withEntityName:(NSString*)entityName {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entityName];
     request.predicate = [NSPredicate predicateWithFormat:@"serverId = %@", serverid];
     NSError *error = nil;
     NSArray *res = [[AppDelegate managedObjectContext] executeFetchRequest:request error:&error];
@@ -41,5 +48,6 @@
     }
     return [res objectAtIndex:0];
 }
+
 
 @end

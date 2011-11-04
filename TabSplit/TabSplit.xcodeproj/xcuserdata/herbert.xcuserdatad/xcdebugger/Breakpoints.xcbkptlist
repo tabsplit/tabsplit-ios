@@ -4,18 +4,18 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "TabSplit/ContactListTableViewController.m"
-         timestampString = "340633487.475776"
+         filePath = "TabSplit/SyncManager.h"
+         timestampString = "342099393.121632"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "24"
-         endingLineNumber = "24"
-         landmarkName = "-initWithStyle:"
-         landmarkType = "5">
+         startingLineNumber = "45"
+         endingLineNumber = "45"
+         landmarkName = "-unregisterListener:"
+         landmarkType = "4">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

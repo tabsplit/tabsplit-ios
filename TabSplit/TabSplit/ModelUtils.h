@@ -10,13 +10,15 @@
 #import "Contact.h"
 #import "Currency.h"
 #import "AppDelegate.h"
+#import "Transaction.h"
 
 @interface ModelUtils : NSObject
 
 
 + (Contact*)fetchContactByServerId: (NSNumber *)serverid;
-
-
 + (Currency*)fetchCurrencyByServerId: (NSNumber *)serverid;
++ (Transaction*)fetchTransactionByServerId: (NSNumber *)serverid;
+
++ (id) fetchObjectByServerId: (NSNumber *)serverid withEntityName:(NSString*)entityName;
 
 @end

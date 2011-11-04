@@ -88,8 +88,17 @@
 }
 
 - (void)contactsSynced {
-    statusMessage.text = @"Synchronization kind of done ;)";
-    progressDialog.progress = 1;
+    statusMessage.text = @"Synchronizing Transactions ;)";
+    progressDialog.progress = 0.6;
+}
+
+- (void)transactionsSynced:(int)page totalPages:(int)totalPages {
+    statusMessage.text = [NSString stringWithFormat:@"Synchronizing Transactions (%d of %d)", page, totalPages];
+    progressDialog.progress = 0.8;
+    if (page == totalPages) {
+        progressDialog.progress = 1;
+        statusMessage.text = @"Synchronization done.";
+    }
 }
 
 @end
