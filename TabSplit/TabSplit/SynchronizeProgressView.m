@@ -14,6 +14,7 @@
 @synthesize progressDialog;
 @synthesize statusMessage;
 @synthesize loginStatus;
+@synthesize cancelButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,6 +65,7 @@
     [self setProgressDialog:nil];
     [self setStatusMessage:nil];
     [self setLoginStatus:nil];
+    [self setCancelButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -98,6 +100,7 @@
     if (page == totalPages) {
         progressDialog.progress = 1;
         statusMessage.text = @"Synchronization done.";
+        [self dismissModalViewControllerAnimated:YES];
     }
 }
 

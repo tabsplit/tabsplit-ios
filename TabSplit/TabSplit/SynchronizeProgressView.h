@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIProgressView *progressDialog;
 @property (strong, nonatomic) IBOutlet UILabel *statusMessage;
 @property (strong, nonatomic) IBOutlet UILabel *loginStatus;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 
 

@@ -13,4 +13,6 @@
     NSFetchedResultsController *controller;
 }
 
+@property (nonatomic, strong) NSManagedObjectID *contactObjectId;
+
 @end

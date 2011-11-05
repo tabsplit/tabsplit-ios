@@ -9,11 +9,17 @@
 #import "TransactionListController.h"
 #import "TransactionListCell.h"
 
+#import "TransactionAwareController.h"
+
 #import "AppDelegate.h"
 #import "Transaction.h"
 
+#import "FormatUtils.h"
 
 @implementation TransactionListController
+
+
+@synthesize contactObjectId;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -49,6 +55,17 @@
     
     managedObjectContext = [AppDelegate managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Transaction"];
+    
+    if (self.contactObjectId != nil) {
+        // only show transactions for the given contact id ..
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(ANY contacts.contact == %@) AND status != 'deleted'", self.contactObjectId];
+        [fetchRequest setPredicate:predicate];
+        NSLog(@"only showing transactions for contact %@", self.contactObjectId);
+    } else {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"status != 'deleted'", self.contactObjectId];
+        [fetchRequest setPredicate:predicate];
+    }
+    
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -123,12 +140,8 @@
     // Configure the cell...
     Transaction *t = [controller objectAtIndexPath:indexPath];
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    
     cell.descriptionLabel.text = t.descr;
-    cell.dateLabel.text = [dateFormatter stringFromDate:t.date];
+    cell.dateLabel.text = [FormatUtils formatDate:t.date];
     NSString *icon = @"ic_payment";
     if ([@"tab" isEqualToString:t.type] ){
         icon = @"ic_tab";
@@ -191,6 +204,19 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    Transaction *t = [controller objectAtIndexPath:indexPath];
+    if ([t.type isEqualToString:@"tab"]) {
+        [self performSegueWithIdentifier:@"showtab" sender:t];
+    } else if ([t.type isEqualToString:@"payment"]) {
+        [self performSegueWithIdentifier:@"showpayment" sender:t];
+    } else if ([t.type isEqualToString:@"jointpayment"]) {
+        [self performSegueWithIdentifier:@"showjointpayment" sender:t];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [[segue destinationViewController] setTransaction:sender];
+    
 }
 
 @end

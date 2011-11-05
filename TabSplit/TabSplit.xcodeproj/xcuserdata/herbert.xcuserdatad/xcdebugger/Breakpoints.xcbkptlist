@@ -4,18 +4,18 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "TabSplit/SyncManager.h"
-         timestampString = "342099393.121632"
+         filePath = "TabSplit/SyncManager.m"
+         timestampString = "342181807.909893"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
-         landmarkName = "-unregisterListener:"
-         landmarkType = "4">
+         startingLineNumber = "107"
+         endingLineNumber = "107"
+         landmarkName = "-handleCurrencyResponse:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

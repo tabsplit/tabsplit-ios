@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "ModelUtils.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -23,6 +25,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
      */
+    
+    [self ensureLogin];
+    
+    return YES;
+}
+- (BOOL)ensureLogin {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSString *username = [defaults stringForKey:@"username"];
@@ -30,19 +38,26 @@
     if (username == nil || token == nil) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://tabsplit.net/mobile/login/"]];
         NSLog(@"Not logged in - redirecting to website.");
+        return NO;
     }
-    
     return YES;
 }
-
 - (BOOL)ensureSync {
+    Contact* myself = [ModelUtils fetchMyself];
+    if (!myself) {
+        return NO;
+    }
+    return YES;
+    /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSInteger lastsync = [defaults integerForKey:@"lastsync"];
     if (!lastsync) {
         [self handleLogin];
+        return NO;
     }
     
     return YES;
+     */
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -73,6 +88,7 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

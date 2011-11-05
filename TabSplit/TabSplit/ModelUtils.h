@@ -16,9 +16,11 @@
 
 
 + (Contact*)fetchContactByServerId: (NSNumber *)serverid;
++ (Contact*)fetchMyself;
 + (Currency*)fetchCurrencyByServerId: (NSNumber *)serverid;
 + (Transaction*)fetchTransactionByServerId: (NSNumber *)serverid;
 
 + (id) fetchObjectByServerId: (NSNumber *)serverid withEntityName:(NSString*)entityName;
++ (id)fetchObjectByPredicate:(NSPredicate *)predicate withEntityName:(NSString*)entityName;
 
 @end

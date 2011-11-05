@@ -27,5 +27,7 @@
 
 @property (nonatomic, strong) IBOutlet EGOImageView *imageView;
 
+@property (nonatomic, strong) NSManagedObjectID *contactId;
+
 
 @end

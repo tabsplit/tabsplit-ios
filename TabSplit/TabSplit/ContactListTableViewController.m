@@ -12,6 +12,7 @@
 #import "ContactDebt.h"
 #import "ContactListCell.h"
 #import "Currency.h"
+#import "TransactionListController.h"
 
 
 @implementation ContactListTableViewController
@@ -147,6 +148,7 @@
     
     cell.debtLabel.text = debt;
     cell.alldebtLabel.text = alldebt;
+    cell.contactId = [managedObject objectID];
 
     
 //    EGOImageView *iv = (EGOImageView *)[cell viewWithTag:101];
@@ -227,6 +229,14 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"CONTACT Preparing for segue .. %@", sender);
+    if ([[segue identifier] isEqualToString:@"transactionsforcontact"]) {
+        TransactionListController *listController = [segue destinationViewController];
+        listController.contactObjectId = ((ContactListCell *)sender).contactId;
+    }
 }
 
 @end

@@ -103,7 +103,9 @@
         NSLog(@"date: %@", c.updated);
     }
     
-    [managedObjectContext save:&error];
+    if (![managedObjectContext save:&error]) {
+        NSLog(@"Error while saving after syncing currencies - %@", error);
+    }
 }
 
 
@@ -128,9 +130,19 @@
         [c setIsmyself:[contactJson objectForKey:@"ismyself"]];
         [c setFullName:[contactJson objectForKey:@"full_name"]];
         [c setAvatarUrl:[contactJson objectForKey:@"avatar"]];
+        [c setAvatarLargeUrl:[contactJson objectForKey:@"avatar_large"]];
         
         // create all contact debts from scratch ..
-        [c removeContactDebts:[c contactDebts]];
+        //[c removeContactDebts:[c contactDebts]];
+        for (ContactDebt *cd in c.contactDebts) {
+            [managedObjectContext deleteObject:cd];
+        }
+//        c.contactDebts = [NSSet set];
+        NSMutableSet *tmp = [c mutableSetValueForKey:@"contactDebts"];
+        [tmp removeAllObjects];
+//        if (![managedObjectContext save:&error]) {
+//            NSLog(@"AAAError while saving after syncing contacts - %@", error);
+//        }
         NSArray *debts = (NSArray *)[contactJson objectForKey:@"debts"];
         for (id debt in debts) {
             ContactDebt *cb = (ContactDebt *)[NSEntityDescription insertNewObjectForEntityForName:@"ContactDebt" inManagedObjectContext:managedObjectContext];
@@ -138,8 +150,13 @@
             cb.amount = [debt objectForKey:@"amount"];
             cb.contact = c;
         }
+//        if (![managedObjectContext save:&error]) {
+//            NSLog(@"BBBError while saving after syncing contacts - %@", error);
+//        }
     }
-    [managedObjectContext save:&error];
+    if (![managedObjectContext save:&error]) {
+        NSLog(@"Error while saving after syncing contacts - %@", error);
+    }
 }
 
 - (void) syncTransactions:(int)page {
@@ -161,6 +178,7 @@
     int page = [[obj objectForKey:@"page"] integerValue];
     
     NSArray *transactions = [obj objectForKey:@"transactions"];
+    NSMutableArray *allTransactions = [NSMutableArray array];
     for (id transactionJson in transactions) {
         NSNumber* serverId = [transactionJson objectForKey:@"id"];
         Transaction *t = [ModelUtils fetchTransactionByServerId:serverId];
@@ -179,6 +197,8 @@
                 continue;
             }
         }
+        [allTransactions addObject:t];
+        
         NSString *type = [transactionJson objectForKey:@"type"];
         [t setModifydate:[NSNumber numberWithInt:modifydate]];
         [t setDescr:[transactionJson objectForKey:@"description"]];
@@ -190,7 +210,11 @@
         [t setStatus:[transactionJson objectForKey:@"status"]];
 
         // Synchronizing contacts ..
-        t.contacts = [NSSet set];
+        //t.contacts = [NSSet set];
+        for (TransactionContact *tc in t.contacts) {
+            [managedObjectContext deleteObject:tc];
+        }
+        [[t mutableSetValueForKey:@"contacts"] removeAllObjects];
         NSArray *contactsJson = [transactionJson objectForKey:@"contacts"];
         for (id contactJson in contactsJson) {
             TransactionContact *tc = [NSEntityDescription insertNewObjectForEntityForName:@"TransactionContact" inManagedObjectContext:managedObjectContext];
@@ -198,10 +222,18 @@
             tc.payAmount = [contactJson objectForKey:@"pay_amount"];
             tc.effectiveAmount = [contactJson objectForKey:@"effective_amount"];
             tc.tipntaxsplit = [contactJson objectForKey:@"tipntaxsplit"];
-            [t addContactsObject:tc];
+            tc.contact = [ModelUtils fetchContactByServerId:[contactJson objectForKey:@"user"]];
+            tc.transaction = t;
+            //NSLog(@"adding transactioncontact - contact: %@", tc.contact);
+            //[t addContactsObject:tc];
         }
         
-        t.debts = [NSSet set];
+        //t.debts = [NSSet set];
+        for (TransactionDebt *tmp in t.debts) {
+            [managedObjectContext deleteObject:tmp];
+        }
+        [[t mutableSetValueForKey:@"debts"] removeAllObjects];
+
         NSArray *debtsJson = [transactionJson objectForKey:@"debts"];
         for (id debtJson in debtsJson) {
             TransactionDebt *debt = [NSEntityDescription insertNewObjectForEntityForName:@"TransactionDebt" inManagedObjectContext:managedObjectContext];
@@ -224,7 +256,12 @@
             bill.calculatedTotal = [transactionJson objectForKeyReturnNil:@"calculated_total"];
             bill.quickRotate = [transactionJson objectForKeyReturnNil:@"rotate"];
             
-            bill.items = [NSSet set];
+            //bill.items = [NSSet set];
+            for (TransactionDebt *tmp in bill.items) {
+                [managedObjectContext deleteObject:tmp];
+            }
+            [[bill mutableSetValueForKey:@"items"] removeAllObjects];
+
             NSArray *itemsJson = [transactionJson objectForKey:@"items"];
             for (id itemJson in itemsJson) {
                 BillItem *billItem = [NSEntityDescription insertNewObjectForEntityForName:@"BillItem" inManagedObjectContext:managedObjectContext];
@@ -247,7 +284,9 @@
     }
     
     NSError *error = nil;
-    [managedObjectContext save:&error];
+    if (![managedObjectContext save:&error]) {
+        NSLog(@"Error while saving transactions!! %@", error);
+    }
     [self fireTransactionsSynced:page totalPages:numPages];
     if (page < numPages) {
         [self syncTransactions:page + 1];

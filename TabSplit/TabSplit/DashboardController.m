@@ -8,8 +8,11 @@
 
 #import "DashboardController.h"
 #import "AppDelegate.h"
+#import "ModelUtils.h"
 
 @implementation DashboardController
+@synthesize loginStatus;
+@synthesize loggedinAvatar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,13 +34,41 @@
 #pragma mark - View lifecycle
 
 - (void)viewDidAppear:(BOOL)animated {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    [delegate ensureSync];
+    [self ensureSync];
     //[self performSegueWithIdentifier:@"reloadData" sender:nil];
 }
 
 - (void)viewDidLoad {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toforeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+}
 
+- (void)toforeground:(NSNotification *)note {
+    NSLog(@"Comes to foreground!");
+    [self ensureSync];
+}
+
+- (void) ensureSync {
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSLog(@"Ensuring login ..");
+    if ([delegate ensureLogin]) {
+        if (![delegate ensureSync]) {
+            NSLog(@"logged in, start sync");
+            [self performSegueWithIdentifier:@"startsync" sender:self];
+            loginStatus.text = @"Not synchronized.";
+        } else {
+            NSLog(@"Logged in and synced :) ");
+            Contact *myself = [ModelUtils fetchMyself];
+            if (myself) {
+                loginStatus.text = [NSString stringWithFormat:@"Welcome %@!", myself.fullName];
+                loggedinAvatar.imageURL = [NSURL URLWithString:myself.avatarLargeUrl];
+            } else {
+                NSLog(@"Error - logged in and synced, but no 'myself'?!");
+            }
+        }
+    } else {
+        loginStatus.text = @"Not logged in.";
+    }
+    
 }
 
 /*
@@ -57,6 +88,8 @@
 
 - (void)viewDidUnload
 {
+    [self setLoginStatus:nil];
+    [self setLoggedinAvatar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

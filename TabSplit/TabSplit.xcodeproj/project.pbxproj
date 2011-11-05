@@ -18,7 +18,6 @@
 		E53A41D8144D5A6D00B460AE /* ModelUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41D7144D5A6D00B460AE /* ModelUtils.m */; };
 		E53A41E5144D5C9200B460AE /* ContactDebt.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41E4144D5C9200B460AE /* ContactDebt.m */; };
 		E53A41E8144D5C9200B460AE /* Currency.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41E7144D5C9200B460AE /* Currency.m */; };
-		E53A41EB144D5C9300B460AE /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = E53A41EA144D5C9300B460AE /* Contact.m */; };
 		E56C88361444B0DD005C68D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56C88351444B0DD005C68D6 /* UIKit.framework */; };
 		E56C88381444B0DD005C68D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56C88371444B0DD005C68D6 /* Foundation.framework */; };
 		E56C883A1444B0DD005C68D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56C88391444B0DD005C68D6 /* CoreGraphics.framework */; };
@@ -41,6 +40,16 @@
 		E58398C514643EA50029DE17 /* ic_jointpayment.png in Resources */ = {isa = PBXBuildFile; fileRef = E58398C214643EA50029DE17 /* ic_jointpayment.png */; };
 		E58398C614643EA50029DE17 /* ic_payment.png in Resources */ = {isa = PBXBuildFile; fileRef = E58398C314643EA50029DE17 /* ic_payment.png */; };
 		E58398C714643EA50029DE17 /* ic_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = E58398C414643EA50029DE17 /* ic_tab.png */; };
+		E58398D7146567F80029DE17 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E58398D6146567F80029DE17 /* TabViewController.m */; };
+		E58398DA146568350029DE17 /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E58398D9146568350029DE17 /* PaymentViewController.m */; };
+		E58398DD146568440029DE17 /* JointPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E58398DC146568440029DE17 /* JointPaymentViewController.m */; };
+		E58398E114656C810029DE17 /* FormatUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E58398E014656C810029DE17 /* FormatUtils.m */; };
+		E58398EA146576D90029DE17 /* JointPaymentParticipantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E58398E9146576D90029DE17 /* JointPaymentParticipantCell.m */; };
+		E58398ED14658D510029DE17 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = E58398EC14658D500029DE17 /* Contact.m */; };
+		E58398EF14658E360029DE17 /* home_btn_friends_default.png in Resources */ = {isa = PBXBuildFile; fileRef = E58398EE14658E360029DE17 /* home_btn_friends_default.png */; };
+		E58398F114658E410029DE17 /* home_btn_bills_default.png in Resources */ = {isa = PBXBuildFile; fileRef = E58398F014658E410029DE17 /* home_btn_bills_default.png */; };
+		E58398F31465917D0029DE17 /* home_btn_bills_default copy.png in Resources */ = {isa = PBXBuildFile; fileRef = E58398F21465917D0029DE17 /* home_btn_bills_default copy.png */; };
+		E58398F5146591840029DE17 /* home_btn_friends_default copy.png in Resources */ = {isa = PBXBuildFile; fileRef = E58398F4146591840029DE17 /* home_btn_friends_default copy.png */; };
 		E5A011331449C572004E6AC0 /* SynchronizeProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A011321449C572004E6AC0 /* SynchronizeProgressView.m */; };
 		E5A011371449CA95004E6AC0 /* DashboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A011361449CA95004E6AC0 /* DashboardController.m */; };
 		E5A0114D1449D1B4004E6AC0 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A0113A1449D1B4004E6AC0 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -91,8 +100,6 @@
 		E53A41CD144D5A1200B460AE /* ContactDebt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDebt.m; sourceTree = "<group>"; };
 		E53A41CF144D5A1300B460AE /* Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Currency.h; sourceTree = "<group>"; };
 		E53A41D0144D5A1300B460AE /* Currency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Currency.m; sourceTree = "<group>"; };
-		E53A41D2144D5A1300B460AE /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		E53A41D3144D5A1300B460AE /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		E53A41D5144D5A2000B460AE /* TabSplit 1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TabSplit 1.3.xcdatamodel"; sourceTree = "<group>"; };
 		E53A41D6144D5A6D00B460AE /* ModelUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelUtils.h; sourceTree = "<group>"; };
 		E53A41D7144D5A6D00B460AE /* ModelUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelUtils.m; sourceTree = "<group>"; };
@@ -101,8 +108,6 @@
 		E53A41E4144D5C9200B460AE /* ContactDebt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDebt.m; sourceTree = "<group>"; };
 		E53A41E6144D5C9200B460AE /* Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Currency.h; sourceTree = "<group>"; };
 		E53A41E7144D5C9200B460AE /* Currency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Currency.m; sourceTree = "<group>"; };
-		E53A41E9144D5C9300B460AE /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		E53A41EA144D5C9300B460AE /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		E53A41EC144D5CC000B460AE /* TabSplit 1.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TabSplit 1.5.xcdatamodel"; sourceTree = "<group>"; };
 		E56C88311444B0DD005C68D6 /* TabSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56C88351444B0DD005C68D6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -141,6 +146,24 @@
 		E58398C214643EA50029DE17 /* ic_jointpayment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_jointpayment.png; sourceTree = "<group>"; };
 		E58398C314643EA50029DE17 /* ic_payment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_payment.png; sourceTree = "<group>"; };
 		E58398C414643EA50029DE17 /* ic_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_tab.png; sourceTree = "<group>"; };
+		E58398C8146440CA0029DE17 /* TabSplit 1.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TabSplit 1.8.xcdatamodel"; sourceTree = "<group>"; };
+		E58398CE146567490029DE17 /* TransactionAwareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionAwareController.h; sourceTree = "<group>"; };
+		E58398D5146567F80029DE17 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		E58398D6146567F80029DE17 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
+		E58398D8146568350029DE17 /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentViewController.h; sourceTree = "<group>"; };
+		E58398D9146568350029DE17 /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
+		E58398DB146568440029DE17 /* JointPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JointPaymentViewController.h; sourceTree = "<group>"; };
+		E58398DC146568440029DE17 /* JointPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JointPaymentViewController.m; sourceTree = "<group>"; };
+		E58398DF14656C810029DE17 /* FormatUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatUtils.h; sourceTree = "<group>"; };
+		E58398E014656C810029DE17 /* FormatUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatUtils.m; sourceTree = "<group>"; };
+		E58398E8146576D90029DE17 /* JointPaymentParticipantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JointPaymentParticipantCell.h; sourceTree = "<group>"; };
+		E58398E9146576D90029DE17 /* JointPaymentParticipantCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JointPaymentParticipantCell.m; sourceTree = "<group>"; };
+		E58398EB14658D4F0029DE17 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		E58398EC14658D500029DE17 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		E58398EE14658E360029DE17 /* home_btn_friends_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_btn_friends_default.png; sourceTree = "<group>"; };
+		E58398F014658E410029DE17 /* home_btn_bills_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_btn_bills_default.png; sourceTree = "<group>"; };
+		E58398F21465917D0029DE17 /* home_btn_bills_default copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_btn_bills_default copy.png"; sourceTree = "<group>"; };
+		E58398F4146591840029DE17 /* home_btn_friends_default copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_btn_friends_default copy.png"; sourceTree = "<group>"; };
 		E5A011311449C572004E6AC0 /* SynchronizeProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizeProgressView.h; sourceTree = "<group>"; };
 		E5A011321449C572004E6AC0 /* SynchronizeProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronizeProgressView.m; sourceTree = "<group>"; };
 		E5A011351449CA95004E6AC0 /* DashboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardController.h; sourceTree = "<group>"; };
@@ -304,6 +327,8 @@
 		E56C883D1444B0DE005C68D6 /* TabSplit */ = {
 			isa = PBXGroup;
 			children = (
+				E58398DE14656C5F0029DE17 /* Utils */,
+				E58398CD146567230029DE17 /* TransactionController */,
 				E53A41C0144CB53B00B460AE /* ContactListCell.h */,
 				E53A41C1144CB53B00B460AE /* ContactListCell.m */,
 				E58398BB146435F20029DE17 /* TransactionListCell.h */,
@@ -358,11 +383,40 @@
 		E58398C114643E880029DE17 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				E58398F4146591840029DE17 /* home_btn_friends_default copy.png */,
+				E58398F21465917D0029DE17 /* home_btn_bills_default copy.png */,
+				E58398F014658E410029DE17 /* home_btn_bills_default.png */,
+				E58398EE14658E360029DE17 /* home_btn_friends_default.png */,
 				E58398C214643EA50029DE17 /* ic_jointpayment.png */,
 				E58398C314643EA50029DE17 /* ic_payment.png */,
 				E58398C414643EA50029DE17 /* ic_tab.png */,
 			);
 			name = Icons;
+			sourceTree = "<group>";
+		};
+		E58398CD146567230029DE17 /* TransactionController */ = {
+			isa = PBXGroup;
+			children = (
+				E58398CE146567490029DE17 /* TransactionAwareController.h */,
+				E58398D5146567F80029DE17 /* TabViewController.h */,
+				E58398D6146567F80029DE17 /* TabViewController.m */,
+				E58398D8146568350029DE17 /* PaymentViewController.h */,
+				E58398D9146568350029DE17 /* PaymentViewController.m */,
+				E58398DB146568440029DE17 /* JointPaymentViewController.h */,
+				E58398DC146568440029DE17 /* JointPaymentViewController.m */,
+				E58398E8146576D90029DE17 /* JointPaymentParticipantCell.h */,
+				E58398E9146576D90029DE17 /* JointPaymentParticipantCell.m */,
+			);
+			name = TransactionController;
+			sourceTree = "<group>";
+		};
+		E58398DE14656C5F0029DE17 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E58398DF14656C810029DE17 /* FormatUtils.h */,
+				E58398E014656C810029DE17 /* FormatUtils.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		E5A011381449D19C004E6AC0 /* ASI Http */ = {
@@ -429,6 +483,8 @@
 		E5A011AD1449F6BC004E6AC0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E58398EB14658D4F0029DE17 /* Contact.h */,
+				E58398EC14658D500029DE17 /* Contact.m */,
 				E58398A81463F45A0029DE17 /* BillItem.h */,
 				E58398A91463F45A0029DE17 /* BillItem.m */,
 				E58398A51463F4590029DE17 /* TransactionContact.h */,
@@ -441,14 +497,10 @@
 				E58398AD146405F10029DE17 /* Transaction.m */,
 				E58398AF14642D520029DE17 /* TransactionDebt.h */,
 				E58398B014642D520029DE17 /* TransactionDebt.m */,
-				E53A41D2144D5A1300B460AE /* Contact.h */,
-				E53A41D3144D5A1300B460AE /* Contact.m */,
 				E53A41CF144D5A1300B460AE /* Currency.h */,
 				E53A41D0144D5A1300B460AE /* Currency.m */,
 				E53A41CC144D5A1200B460AE /* ContactDebt.h */,
 				E53A41CD144D5A1200B460AE /* ContactDebt.m */,
-				E53A41E9144D5C9300B460AE /* Contact.h */,
-				E53A41EA144D5C9300B460AE /* Contact.m */,
 				E53A41E6144D5C9200B460AE /* Currency.h */,
 				E53A41E7144D5C9200B460AE /* Currency.m */,
 				E53A41E3144D5C9200B460AE /* ContactDebt.h */,
@@ -516,6 +568,10 @@
 				E58398C514643EA50029DE17 /* ic_jointpayment.png in Resources */,
 				E58398C614643EA50029DE17 /* ic_payment.png in Resources */,
 				E58398C714643EA50029DE17 /* ic_tab.png in Resources */,
+				E58398EF14658E360029DE17 /* home_btn_friends_default.png in Resources */,
+				E58398F114658E410029DE17 /* home_btn_bills_default.png in Resources */,
+				E58398F31465917D0029DE17 /* home_btn_bills_default copy.png in Resources */,
+				E58398F5146591840029DE17 /* home_btn_friends_default copy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,7 +619,6 @@
 				E53A41D8144D5A6D00B460AE /* ModelUtils.m in Sources */,
 				E53A41E5144D5C9200B460AE /* ContactDebt.m in Sources */,
 				E53A41E8144D5C9200B460AE /* Currency.m in Sources */,
-				E53A41EB144D5C9300B460AE /* Contact.m in Sources */,
 				E58398A11463F4590029DE17 /* Bill.m in Sources */,
 				E58398A41463F4590029DE17 /* BillItemContact.m in Sources */,
 				E58398A71463F4590029DE17 /* TransactionContact.m in Sources */,
@@ -573,6 +628,12 @@
 				E58398BA146433630029DE17 /* NSDictionary+NSDictionary_ObjectForKeyReturnNil.m in Sources */,
 				E58398BD146435F30029DE17 /* TransactionListCell.m in Sources */,
 				E58398C01464370C0029DE17 /* TransactionListController.m in Sources */,
+				E58398D7146567F80029DE17 /* TabViewController.m in Sources */,
+				E58398DA146568350029DE17 /* PaymentViewController.m in Sources */,
+				E58398DD146568440029DE17 /* JointPaymentViewController.m in Sources */,
+				E58398E114656C810029DE17 /* FormatUtils.m in Sources */,
+				E58398EA146576D90029DE17 /* JointPaymentParticipantCell.m in Sources */,
+				E58398ED14658D510029DE17 /* Contact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +754,7 @@
 				E53A41D9144D5B2400B460AE /* TabSplit 1.4.xcdatamodel */,
 				E5A011B1144A018A004E6AC0 /* TabSplit 1.1.xcdatamodel */,
 				E56C884A1444B0DE005C68D6 /* TabSplit.xcdatamodel */,
+				E58398C8146440CA0029DE17 /* TabSplit 1.8.xcdatamodel */,
 				E58398AB146405AC0029DE17 /* TabSplit 1.7.xcdatamodel */,
 			);
 			currentVersion = E56C884A1444B0DE005C68D6 /* TabSplit.xcdatamodel */;

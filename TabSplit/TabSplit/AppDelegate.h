@@ -24,6 +24,7 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 - (void) handleLogin;
+- (BOOL) ensureLogin;
 - (BOOL) ensureSync;
 
 

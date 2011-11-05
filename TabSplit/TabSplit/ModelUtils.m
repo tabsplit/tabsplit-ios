@@ -13,18 +13,28 @@
 
 
 + (Contact*)fetchContactByServerId: (NSNumber *)serverid {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Contact"];
-    request.predicate = [NSPredicate predicateWithFormat:@"serverId = %@", serverid];
+    return [self fetchObjectByServerId:serverid withEntityName:@"Contact"];
+}
++ (Contact*)fetchMyself {
+    return [self fetchObjectByPredicate:[NSPredicate predicateWithFormat:@"ismyself != 0"] withEntityName:@"Contact"];
+}
+
++ (id)fetchObjectByPredicate:(NSPredicate *)predicate withEntityName:(NSString*)entityName {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entityName];
+    request.predicate = predicate;
     NSError *error = nil;
     NSArray *res = [[AppDelegate managedObjectContext] executeFetchRequest:request error:&error];
     if (res == nil) {
         // handle error
+        NSLog(@"Error while trying to find entity: %@", error);
     }
     if ([res count] < 1) {
+        NSLog(@"Unable to find entity.");
         return nil;
     }
     return [res objectAtIndex:0];
 }
+
 
 
 
