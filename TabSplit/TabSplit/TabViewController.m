@@ -8,7 +8,16 @@
 
 #import "TabViewController.h"
 
+#import "Bill.h"
+#import "Transaction.h"
+
 @implementation TabViewController
+@synthesize descriptionLabel;
+@synthesize dateLabel;
+@synthesize itemsTotal;
+@synthesize tipntax;
+@synthesize total;
+@synthesize receiptPhoto;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,16 +49,23 @@
 }
 */
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    receiptPhoto.imageURL = [NSURL URLWithString:transaction.bill.photoUrl];
+    NSLog(@"loading photo from %@",  [NSURL URLWithString:transaction.bill.photoUrl]);
 }
-*/
 
 - (void)viewDidUnload
 {
+    [self setDescriptionLabel:nil];
+    [self setDateLabel:nil];
+    [self setItemsTotal:nil];
+    [self setTipntax:nil];
+    [self setTotal:nil];
+    [self setReceiptPhoto:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
