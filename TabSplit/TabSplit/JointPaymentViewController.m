@@ -67,6 +67,7 @@
     [super viewDidLoad];
     
     
+    [AppDelegate trackPageView:@"/jointpaymentview"];
     
     managedObjectContext = [AppDelegate managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"TransactionContact"];

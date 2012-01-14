@@ -29,6 +29,9 @@
 
 
 
++ (void) trackPageView:(NSString *)page;
+
+
 - (NSDictionary *)parseQueryString:(NSString *)query;
 
 

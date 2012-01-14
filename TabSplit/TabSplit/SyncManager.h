@@ -12,6 +12,7 @@
 
 static NSString *SYNCSTATUS_NOTMODIFIED = @"notmodified";
 
+static NSString *TSAPIKEY = @"FjexqZRzrCshMMPBvJy9SV4qhrVEgANjTTve8MXF";
 
 @interface SyncManager : NSObject {
     NSMutableArray *listeners;

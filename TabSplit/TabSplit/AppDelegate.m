@@ -9,6 +9,12 @@
 #import "AppDelegate.h"
 
 #import "ModelUtils.h"
+#import "GANTracker.h"
+
+#import "SyncManager.h"
+
+// Dispatch period in seconds
+static const NSInteger kGANDispatchPeriodSec = 10;
 
 @implementation AppDelegate
 
@@ -26,17 +32,47 @@
     [self.window makeKeyAndVisible];
      */
     
-    [self ensureLogin];
+    //[self ensureLogin];
+    
+    
+    NSLog(@"didFinishLaunchingWithOptions");
+    
+    [[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-24043736-4"
+                                           dispatchPeriod:kGANDispatchPeriodSec
+                                                 delegate:nil];
+    
+    NSError *error;
+    if (![[GANTracker sharedTracker] setCustomVariableAtIndex:1
+                                                         name:@"iPhone1"
+                                                        value:@"iv1"
+                                                    withError:&error]) {
+        // Handle error here
+    }
+    
+    if (![[GANTracker sharedTracker] trackPageview:@"/entry"
+                                         withError:&error]) {
+        // Handle error here
+    }
     
     return YES;
 }
+
++ (void) trackPageView:(NSString *)page {
+    NSError *error;
+    if (![[GANTracker sharedTracker] trackPageview:page
+                                         withError:&error]) {
+        // Handle error here
+    }
+    
+}
+
 - (BOOL)ensureLogin {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSString *username = [defaults stringForKey:@"username"];
     NSString *token = [defaults stringForKey: @"token"];
     if (username == nil || token == nil) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://tabsplit.net/mobile/login/"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://tabsplit.net/mobile/login/?apikey=%@", TSAPIKEY]]];
         NSLog(@"Not logged in - redirecting to website.");
         return NO;
     }
@@ -259,6 +295,10 @@
 + (NSManagedObjectContext*) managedObjectContext {
     AppDelegate* delegate = [UIApplication sharedApplication].delegate;
     return delegate.managedObjectContext;
+}
+
+- (void)dealloc {
+    [[GANTracker sharedTracker] stopTracker];
 }
 
 @end

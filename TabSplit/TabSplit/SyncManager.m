@@ -60,6 +60,11 @@
 }
 
 - (void) requestJSON:(NSString *)path tag:(RequestTag) tag {
+    if ([path rangeOfString:@"?"].location == NSNotFound) {
+        path = [path stringByAppendingFormat:@"?apikey=%@", TSAPIKEY];
+    } else {
+        path = [path stringByAppendingFormat:@"&apikey=%@", TSAPIKEY];
+    }
     NSString* url = [NSString stringWithFormat:@"http://tabsplit.net%@", path];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
     [request setTag:tag];
@@ -73,7 +78,7 @@
     NSString *username = [defaults stringForKey:@"username"];
     NSString *token = [defaults stringForKey: @"token"];
     
-    NSString *url = [NSString stringWithFormat:@"/mobile/auth/?username=%@&token=%@", [username stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding], [token stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding ]];
+    NSString *url = [NSString stringWithFormat:@"/mobile/auth/?apikey=%@&username=%@&token=%@", TSAPIKEY, [username stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding], [token stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding ]];
     
     [self requestJSON:url tag:RequestLogin];
 }

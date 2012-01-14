@@ -14,11 +14,23 @@
 @synthesize loginStatus;
 @synthesize loggedinAvatar;
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        NSLog(@"initializing ... 222");
+        didStartBrowserBefore = 0;
+    }
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        NSLog(@"initializing ...");
+        didStartBrowserBefore = 0;
     }
     return self;
 }
@@ -34,17 +46,32 @@
 #pragma mark - View lifecycle
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self ensureSync];
+    //[self ensureSync];
+    [self toforeground:nil];
     //[self performSegueWithIdentifier:@"reloadData" sender:nil];
+    NSLog(@"viewDidAppear");
+    [AppDelegate trackPageView:@"/dashboard"];
 }
 
 - (void)viewDidLoad {
+    NSLog(@"view did load. %d", didStartBrowserBefore);
+    didStartBrowserBefore = 1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toforeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didbecomeactive:) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 - (void)toforeground:(NSNotification *)note {
-    NSLog(@"Comes to foreground!");
-    [self ensureSync];
+    NSLog(@"Comes to foreground! %d", didStartBrowserBefore);
+    if (didStartBrowserBefore != 3) {
+        didStartBrowserBefore = 3;
+        [self ensureSync];
+    } else {
+        NSLog(@"delayed ensureSync");
+        [self performSelector:@selector(ensureSync) withObject:nil afterDelay:0.5];
+    }
+}
+- (void)didbecomeactive:(NSNotification *)note {
+    NSLog(@"Did become active");
 }
 
 - (void) ensureSync {

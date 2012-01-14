@@ -10,6 +10,9 @@
 
 @implementation TabViewItemParticipantCell
 
+@synthesize avatar;
+@synthesize userName;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

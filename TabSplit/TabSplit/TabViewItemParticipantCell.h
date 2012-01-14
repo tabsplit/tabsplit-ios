@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EGOImageView.h"
 
 @interface TabViewItemParticipantCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+@property (weak, nonatomic) IBOutlet EGOImageView *avatar;
+
 
 @end

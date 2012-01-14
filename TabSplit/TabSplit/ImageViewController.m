@@ -9,6 +9,7 @@
 #import "ImageViewController.h"
 
 @implementation ImageViewController
+@synthesize imageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +28,11 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+-(void)setImageURL:(NSURL *)_url {
+    self->url = _url;
+}
+
+
 #pragma mark - View lifecycle
 
 /*
@@ -36,19 +42,22 @@
 }
 */
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    imageView.imageURL = url;
 }
-*/
+
 
 - (void)viewDidUnload
 {
+    [self setImageView:nil];
+    [self setImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

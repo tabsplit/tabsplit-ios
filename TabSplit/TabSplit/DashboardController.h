@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "EGOImageView.h"
 
-@interface DashboardController : UIViewController
+@interface DashboardController : UIViewController {
+    int didStartBrowserBefore;
+}
 @property (weak, nonatomic) IBOutlet UILabel *loginStatus;
 @property (weak, nonatomic) IBOutlet EGOImageView *loggedinAvatar;
 
 - (void)toforeground: (NSNotification *)note;
 - (void)ensureSync;
+- (void)didbecomeactive:(NSNotification *)note;
 
 @end

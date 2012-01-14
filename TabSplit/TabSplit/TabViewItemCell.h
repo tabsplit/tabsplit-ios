@@ -10,4 +10,7 @@
 
 @interface TabViewItemCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *itemLabel;
+@property (weak, nonatomic) IBOutlet UILabel *itemAmount;
+
 @end

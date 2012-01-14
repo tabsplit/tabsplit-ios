@@ -50,6 +50,15 @@
 		E58398F114658E410029DE17 /* home_btn_bills_default.png in Resources */ = {isa = PBXBuildFile; fileRef = E58398F014658E410029DE17 /* home_btn_bills_default.png */; };
 		E58398F31465917D0029DE17 /* home_btn_bills_default copy.png in Resources */ = {isa = PBXBuildFile; fileRef = E58398F21465917D0029DE17 /* home_btn_bills_default copy.png */; };
 		E58398F5146591840029DE17 /* home_btn_friends_default copy.png in Resources */ = {isa = PBXBuildFile; fileRef = E58398F4146591840029DE17 /* home_btn_friends_default copy.png */; };
+		E5941C8C147412DB004356B4 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5941C8B147412DB004356B4 /* ImageViewController.m */; };
+		E5941C9014742887004356B4 /* TabViewItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5941C8F14742887004356B4 /* TabViewItemCell.m */; };
+		E5941C9314742916004356B4 /* TabViewItemParticipantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5941C9214742916004356B4 /* TabViewItemParticipantCell.m */; };
+		E5941CAA1475469E004356B4 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5941CA91475469E004356B4 /* Icon@2x.png */; };
+		E5941CAD14754700004356B4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E5941CAC14754700004356B4 /* Icon.png */; };
+		E5941CAF14754B91004356B4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E5941CAE14754B91004356B4 /* Default.png */; };
+		E5941CB1147570CD004356B4 /* ajax-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = E5941CB0147570CD004356B4 /* ajax-loader.gif */; };
+		E5941CB814759FBA004356B4 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5941CB714759FBA004356B4 /* libGoogleAnalytics.a */; };
+		E5941CBA14759FEE004356B4 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E5941CB914759FEE004356B4 /* libsqlite3.0.dylib */; };
 		E5A011331449C572004E6AC0 /* SynchronizeProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A011321449C572004E6AC0 /* SynchronizeProgressView.m */; };
 		E5A011371449CA95004E6AC0 /* DashboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A011361449CA95004E6AC0 /* DashboardController.m */; };
 		E5A0114D1449D1B4004E6AC0 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A0113A1449D1B4004E6AC0 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -164,6 +173,20 @@
 		E58398F014658E410029DE17 /* home_btn_bills_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_btn_bills_default.png; sourceTree = "<group>"; };
 		E58398F21465917D0029DE17 /* home_btn_bills_default copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_btn_bills_default copy.png"; sourceTree = "<group>"; };
 		E58398F4146591840029DE17 /* home_btn_friends_default copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_btn_friends_default copy.png"; sourceTree = "<group>"; };
+		E5941C8A147412DB004356B4 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		E5941C8B147412DB004356B4 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		E5941C8E14742887004356B4 /* TabViewItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewItemCell.h; sourceTree = "<group>"; };
+		E5941C8F14742887004356B4 /* TabViewItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewItemCell.m; sourceTree = "<group>"; };
+		E5941C9114742915004356B4 /* TabViewItemParticipantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewItemParticipantCell.h; sourceTree = "<group>"; };
+		E5941C9214742916004356B4 /* TabViewItemParticipantCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewItemParticipantCell.m; sourceTree = "<group>"; };
+		E5941CA91475469E004356B4 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		E5941CAC14754700004356B4 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		E5941CAE14754B91004356B4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E5941CB0147570CD004356B4 /* ajax-loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ajax-loader.gif"; sourceTree = "<group>"; };
+		E5941CB214759F76004356B4 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = "../../../../Downloads/Google Analytics SDK 2/Library/libGoogleAnalytics.a"; sourceTree = "<group>"; };
+		E5941CB414759F8B004356B4 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
+		E5941CB714759FBA004356B4 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		E5941CB914759FEE004356B4 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		E5A011311449C572004E6AC0 /* SynchronizeProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchronizeProgressView.h; sourceTree = "<group>"; };
 		E5A011321449C572004E6AC0 /* SynchronizeProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchronizeProgressView.m; sourceTree = "<group>"; };
 		E5A011351449CA95004E6AC0 /* DashboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardController.h; sourceTree = "<group>"; };
@@ -229,6 +252,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5941CBA14759FEE004356B4 /* libsqlite3.0.dylib in Frameworks */,
 				E5A0115C1449D206004E6AC0 /* libz.dylib in Frameworks */,
 				E5A0115A1449D1E8004E6AC0 /* MobileCoreServices.framework in Frameworks */,
 				E5A011581449D1DC004E6AC0 /* SystemConfiguration.framework in Frameworks */,
@@ -237,6 +261,7 @@
 				E56C88381444B0DD005C68D6 /* Foundation.framework in Frameworks */,
 				E56C883A1444B0DD005C68D6 /* CoreGraphics.framework in Frameworks */,
 				E56C883C1444B0DD005C68D6 /* CoreData.framework in Frameworks */,
+				E5941CB814759FBA004356B4 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +320,11 @@
 		E56C88261444B0DD005C68D6 = {
 			isa = PBXGroup;
 			children = (
+				E5941CB914759FEE004356B4 /* libsqlite3.0.dylib */,
+				E5941CB214759F76004356B4 /* libGoogleAnalytics.a */,
+				E5941CAE14754B91004356B4 /* Default.png */,
+				E5941CAC14754700004356B4 /* Icon.png */,
+				E5941CA91475469E004356B4 /* Icon@2x.png */,
 				E5A0115B1449D206004E6AC0 /* libz.dylib */,
 				E5A011591449D1E8004E6AC0 /* MobileCoreServices.framework */,
 				E5A011571449D1DC004E6AC0 /* SystemConfiguration.framework */,
@@ -352,6 +382,8 @@
 				E56C883E1444B0DE005C68D6 /* Supporting Files */,
 				E58398B8146433620029DE17 /* NSDictionary+NSDictionary_ObjectForKeyReturnNil.h */,
 				E58398B9146433620029DE17 /* NSDictionary+NSDictionary_ObjectForKeyReturnNil.m */,
+				E5941C8A147412DB004356B4 /* ImageViewController.h */,
+				E5941C8B147412DB004356B4 /* ImageViewController.m */,
 			);
 			path = TabSplit;
 			sourceTree = "<group>";
@@ -383,6 +415,7 @@
 		E58398C114643E880029DE17 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				E5941CB0147570CD004356B4 /* ajax-loader.gif */,
 				E58398F4146591840029DE17 /* home_btn_friends_default copy.png */,
 				E58398F21465917D0029DE17 /* home_btn_bills_default copy.png */,
 				E58398F014658E410029DE17 /* home_btn_bills_default.png */,
@@ -400,6 +433,10 @@
 				E58398CE146567490029DE17 /* TransactionAwareController.h */,
 				E58398D5146567F80029DE17 /* TabViewController.h */,
 				E58398D6146567F80029DE17 /* TabViewController.m */,
+				E5941C8E14742887004356B4 /* TabViewItemCell.h */,
+				E5941C8F14742887004356B4 /* TabViewItemCell.m */,
+				E5941C9114742915004356B4 /* TabViewItemParticipantCell.h */,
+				E5941C9214742916004356B4 /* TabViewItemParticipantCell.m */,
 				E58398D8146568350029DE17 /* PaymentViewController.h */,
 				E58398D9146568350029DE17 /* PaymentViewController.m */,
 				E58398DB146568440029DE17 /* JointPaymentViewController.h */,
@@ -413,6 +450,8 @@
 		E58398DE14656C5F0029DE17 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E5941CB714759FBA004356B4 /* libGoogleAnalytics.a */,
+				E5941CB414759F8B004356B4 /* GANTracker.h */,
 				E58398DF14656C810029DE17 /* FormatUtils.h */,
 				E58398E014656C810029DE17 /* FormatUtils.m */,
 			);
@@ -572,6 +611,10 @@
 				E58398F114658E410029DE17 /* home_btn_bills_default.png in Resources */,
 				E58398F31465917D0029DE17 /* home_btn_bills_default copy.png in Resources */,
 				E58398F5146591840029DE17 /* home_btn_friends_default copy.png in Resources */,
+				E5941CAA1475469E004356B4 /* Icon@2x.png in Resources */,
+				E5941CAD14754700004356B4 /* Icon.png in Resources */,
+				E5941CAF14754B91004356B4 /* Default.png in Resources */,
+				E5941CB1147570CD004356B4 /* ajax-loader.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +677,9 @@
 				E58398E114656C810029DE17 /* FormatUtils.m in Sources */,
 				E58398EA146576D90029DE17 /* JointPaymentParticipantCell.m in Sources */,
 				E58398ED14658D510029DE17 /* Contact.m in Sources */,
+				E5941C8C147412DB004356B4 /* ImageViewController.m in Sources */,
+				E5941C9014742887004356B4 /* TabViewItemCell.m in Sources */,
+				E5941C9314742916004356B4 /* TabViewItemParticipantCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,7 +729,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -692,6 +739,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -704,7 +753,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabSplit/TabSplit-Prefix.pch";
 				INFOPLIST_FILE = "TabSplit/TabSplit-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Downloads/Google Analytics SDK 2/Library\"",
+					"\"$(SRCROOT)/TabSplit\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -715,7 +770,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabSplit/TabSplit-Prefix.pch";
 				INFOPLIST_FILE = "TabSplit/TabSplit-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Downloads/Google Analytics SDK 2/Library\"",
+					"\"$(SRCROOT)/TabSplit\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

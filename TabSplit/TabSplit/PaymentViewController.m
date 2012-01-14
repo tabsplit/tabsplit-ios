@@ -11,6 +11,7 @@
 #import "FormatUtils.h"
 #import "TransactionContact.h"
 #import "Contact.h"
+#import "AppDelegate.h"
 
 @implementation PaymentViewController
 @synthesize descriptionLabel;
@@ -56,6 +57,7 @@
 {
     [super viewDidLoad];
     
+    [AppDelegate trackPageView:@"/paymentview"];
     descriptionLabel.text = transaction.descr;
     dateLabel.text = [FormatUtils formatDate:transaction.date];
     

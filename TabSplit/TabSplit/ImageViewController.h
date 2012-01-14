@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EGOImageView.h"
 
-@interface ImageViewController : UIViewController
+@interface ImageViewController : UIViewController {
+    NSURL *url;
+}
+
+
+@property (weak, nonatomic) IBOutlet EGOImageView *imageView;
+-(void)setImageURL:(NSURL *)url;
 
 @end
