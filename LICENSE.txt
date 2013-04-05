@@ -1,0 +1,5 @@
+TabSplit for iOS is licensed under the GPL. See gpl.txt for details.
+
+
+https://tabsplit.com/
+
